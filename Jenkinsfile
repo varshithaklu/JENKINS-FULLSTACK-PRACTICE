@@ -37,18 +37,19 @@ pipeline {
 
         // ===== BACKEND DEPLOY =====
         stage('Deploy Backend to Tomcat') {
-            steps {
-                bat '''
-                if exist "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\moodtracker.war" (
-                    del /Q "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\moodtracker.war"
-                )
-                if exist "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\moodtracker" (
-                    rmdir /S /Q "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\moodtracker"
-                )
-                copy "BACKENDPRAC\\target\\*.war" "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\"
-                '''
-            }
-        }
+    steps {
+        bat '''
+            if exist "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\moodtracker.war" (
+                del /Q "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\moodtracker.war"
+            )
+            if exist "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\moodtracker" (
+                rmdir /S /Q "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\moodtracker"
+            )
+            copy "BACKENDPRAC\\mood\\target\\*.war" "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\moodtracker.war"
+        '''
+    }
+}
+
 
     }
 
