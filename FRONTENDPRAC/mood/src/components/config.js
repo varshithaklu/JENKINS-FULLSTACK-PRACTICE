@@ -1,5 +1,5 @@
 const config = {
-    url: "http://localhost:2028/moodapi"
+    url: "http://localhost:2030/moodtracker/moodapi"
 };
 
 export default config;
